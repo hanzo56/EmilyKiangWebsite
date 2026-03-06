@@ -547,11 +547,13 @@ a {
 }
 
 .cta-card {
+  display: block;
   background: rgba(255, 255, 255, 0.1);
   border-radius: 10px;
   padding: 24px;
   text-align: center;
   transition: transform 0.25s ease;
+  color: inherit;
 }
 
 .cta-card:hover {
@@ -602,6 +604,85 @@ a {
   line-height: 24px;
   color: var(--gold-border);
   letter-spacing: -0.31px;
+}
+
+/* ═══════════════════════════════════
+   7. FOOTER
+   ═══════════════════════════════════ */
+
+.site-footer {
+  background: var(--cardinal-dark);
+  padding: 24px 40px;
+  text-align: center;
+}
+
+.site-footer p {
+  font-size: 14px;
+  line-height: 20px;
+  color: rgba(255, 255, 255, 0.6);
+  letter-spacing: -0.2px;
+}
+
+/* ═══════════════════════════════════
+   8. 3D SCROLL ANIMATIONS
+   ═══════════════════════════════════ */
+
+.hero {
+  perspective: 1200px;
+  transform-style: preserve-3d;
+}
+
+.hero-text,
+.hero-image-wrapper {
+  will-change: transform, opacity;
+  transform-style: preserve-3d;
+}
+
+.scroll-3d-card {
+  opacity: 0;
+  transform: perspective(900px) rotateX(-12deg) rotateY(4deg) translateZ(-80px) translateY(40px);
+  transition: transform 0.8s cubic-bezier(0.23, 1, 0.32, 1),
+              opacity 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+  will-change: transform, opacity;
+}
+
+.scroll-3d-card--visible {
+  opacity: 1;
+  transform: perspective(900px) rotateX(0deg) rotateY(0deg) translateZ(0px) translateY(0px);
+}
+
+.scroll-3d-card--visible:hover {
+  transform: perspective(900px) scale(1.05);
+}
+
+.drives-card {
+  will-change: transform, opacity;
+  transform-style: preserve-3d;
+}
+
+.story-text {
+  will-change: transform, opacity;
+}
+
+.spirit-quote {
+  will-change: transform, opacity;
+  transform-origin: center bottom;
+}
+
+.spirit-body p {
+  will-change: transform, opacity;
+}
+
+.section-header h2,
+.section-header p {
+  will-change: transform, opacity;
+}
+
+.cta h2,
+.cta .cta-subtitle,
+.cta .btn-white,
+.cta .cta-footer {
+  will-change: transform, opacity;
 }
 
 /* ═══════════════════════════════════
