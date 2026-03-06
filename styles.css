@@ -390,7 +390,8 @@ a {
    ═══════════════════════════════════ */
 
 .spirit {
-  background: linear-gradient(to bottom, #fff, #f9fafb);
+  background: linear-gradient(to bottom, rgba(255,255,255,0.92), rgba(249,250,251,0.92)),
+              url('images/arcadiaLogo.png') center center / contain no-repeat;
   padding: 80px 40px;
 }
 
