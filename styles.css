@@ -216,6 +216,11 @@ a {
   border-radius: 14px;
   padding: 34px 24px;
   text-align: center;
+  transition: transform 0.25s ease;
+}
+
+.about-card:hover {
+  transform: scale(1.05);
 }
 
 .about-card--blue  { border-color: var(--blue-border); }
