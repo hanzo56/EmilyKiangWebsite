@@ -25,7 +25,7 @@
         </div>
         <div class="hero-image-wrapper">
           <div class="hero-image-bg"></div>
-          <img src="images/hero.jpg" alt="Emily Kiang" class="hero-image" />
+          <img src="images/hero3.jpeg" alt="Emily Kiang" class="hero-image" />
         </div>
       </div>
     </section>
@@ -85,7 +85,7 @@
       </div>
       <div class="drives-grid">
         <div class="drives-card">
-          <img src="images/beach.jpg" alt="Beach" class="drives-card-img" />
+          <img src="images/beach.jpeg" alt="Beach" class="drives-card-img" />
           <div class="drives-card-overlay">
             <div class="drives-card-content">
               <h3>Beach Lover</h3>
@@ -116,7 +116,12 @@
           </div>
         </div>
         <div class="drives-card">
-          <img src="images/baking.jpg" alt="Baking" class="drives-card-img" />
+          <img
+            src="images/cookies.jpg"
+            alt="Baking"
+            class="drives-card-img"
+            style="object-position: center calc(50% + 40px)"
+          />
           <div class="drives-card-overlay">
             <div class="drives-card-content">
               <h3>Passionate Baker</h3>
@@ -178,9 +183,6 @@
             deeper in love with our school. Arcadia has given me so much, and
             now it's my turn to give back as your Public Relations leader.
           </p>
-        </div>
-        <div class="story-image">
-          <img src="images/arcadia-story.jpg" alt="Friends at Arcadia" />
         </div>
       </div>
     </section>
@@ -309,13 +311,23 @@
     <script>
       (() => {
         const hero = document.querySelector(".hero");
-        const colors = ["#f6339a", "#ad46ff", "#ff6b9d", "#c27aff", "#ff85b3"];
+        const colors = ["#9D1B34", "#F0B323", "#b82e49", "#f5c34d", "#d4a017"];
+        const symbols = [
+          { text: "\u2665", type: "heart" },
+          { text: "\uD83E\uDD8B", type: "butterfly" },
+          { text: "\uD83C\uDF38", type: "flower" },
+          { text: "\uD83C\uDF3A", type: "flower" },
+          { text: "\uD83C\uDF3B", type: "flower" },
+          { text: "\uD83C\uDF3C", type: "flower" },
+        ];
         let interval = null;
 
-        function createHeart() {
-          const heart = document.createElement("span");
-          heart.classList.add("hero-heart");
-          heart.textContent = "\u2665";
+        function createParticle() {
+          const el = document.createElement("span");
+          el.classList.add("hero-heart");
+
+          const pick = symbols[Math.floor(Math.random() * symbols.length)];
+          el.textContent = pick.text;
 
           const size = 14 + Math.random() * 22;
           const left = Math.random() * 100;
@@ -323,22 +335,22 @@
           const delay = Math.random() * 0.5;
           const color = colors[Math.floor(Math.random() * colors.length)];
 
-          heart.style.cssText = `
-          left: ${left}%;
-          font-size: ${size}px;
-          color: ${color};
-          animation-duration: ${duration}s;
-          animation-delay: ${delay}s;
-        `;
+          el.style.cssText = `
+            left: ${left}%;
+            font-size: ${size}px;
+            color: ${color};
+            animation-duration: ${duration}s;
+            animation-delay: ${delay}s;
+          `;
 
-          hero.appendChild(heart);
-          setTimeout(() => heart.remove(), (duration + delay) * 1000);
+          hero.appendChild(el);
+          setTimeout(() => el.remove(), (duration + delay) * 1000);
         }
 
         hero.addEventListener("mouseenter", () => {
           if (interval) return;
-          for (let i = 0; i < 5; i++) createHeart();
-          interval = setInterval(createHeart, 300);
+          for (let i = 0; i < 5; i++) createParticle();
+          interval = setInterval(createParticle, 300);
         });
 
         hero.addEventListener("mouseleave", () => {
