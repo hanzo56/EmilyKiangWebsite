@@ -192,5 +192,47 @@
     </div>
   </section>
 
+  <script>
+    (() => {
+      const hero = document.querySelector('.hero');
+      const colors = ['#f6339a', '#ad46ff', '#ff6b9d', '#c27aff', '#ff85b3'];
+      let interval = null;
+
+      function createHeart() {
+        const heart = document.createElement('span');
+        heart.classList.add('hero-heart');
+        heart.textContent = '\u2665';
+
+        const size = 14 + Math.random() * 22;
+        const left = Math.random() * 100;
+        const duration = 4 + Math.random() * 4;
+        const delay = Math.random() * 0.5;
+        const color = colors[Math.floor(Math.random() * colors.length)];
+
+        heart.style.cssText = `
+          left: ${left}%;
+          font-size: ${size}px;
+          color: ${color};
+          animation-duration: ${duration}s;
+          animation-delay: ${delay}s;
+        `;
+
+        hero.appendChild(heart);
+        setTimeout(() => heart.remove(), (duration + delay) * 1000);
+      }
+
+      hero.addEventListener('mouseenter', () => {
+        if (interval) return;
+        for (let i = 0; i < 5; i++) createHeart();
+        interval = setInterval(createHeart, 300);
+      });
+
+      hero.addEventListener('mouseleave', () => {
+        clearInterval(interval);
+        interval = null;
+      });
+    })();
+  </script>
+
 </body>
 </html>
