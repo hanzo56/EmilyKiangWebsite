@@ -7,20 +7,20 @@
 }
 
 :root {
-  --blue: #155dfc;
-  --purple: #9810fa;
-  --pink: #f6339a;
-  --blue-bright: #2b7fff;
-  --purple-bright: #ad46ff;
+  --cardinal: #9D1B34;
+  --gold: #F0B323;
+  --cardinal-dark: #7a1528;
+  --cardinal-bright: #b82e49;
+  --gold-bright: #f5c34d;
   --text-dark: #0a0a0a;
   --text-body: #364153;
   --text-muted: #4a5565;
-  --blue-light-bg: #dbeafe;
-  --purple-light-bg: #f3e8ff;
-  --pink-light-bg: #fce7f3;
-  --blue-border: #bedbff;
-  --purple-border: #e9d4ff;
-  --pink-border: #fccee8;
+  --cardinal-light-bg: #f9e8eb;
+  --gold-light-bg: #fdf5e0;
+  --gold-light-bg-alt: #fef3d6;
+  --cardinal-border: #e6a0ad;
+  --gold-border: #f5d580;
+  --gold-border-alt: #f0c960;
   --max-width: 1152px;
 }
 
@@ -57,22 +57,22 @@ a {
   cursor: pointer;
   border: none;
   letter-spacing: -0.44px;
-  transition: opacity 0.2s, transform 0.2s;
+  transition: opacity 0.2s, transform 0.25s ease;
 }
 
 .btn:hover {
   opacity: 0.9;
-  transform: translateY(-1px);
+  transform: scale(1.05);
 }
 
 .btn-gradient {
-  background: linear-gradient(to right, var(--blue), var(--purple));
+  background: linear-gradient(to right, var(--cardinal), var(--gold));
   color: #fff;
 }
 
 .btn-white {
   background: #fff;
-  color: #59168b;
+  color: var(--cardinal);
 }
 
 /* ── Section header (centered) ── */
@@ -105,7 +105,7 @@ a {
    ═══════════════════════════════════ */
 
 .hero {
-  background: linear-gradient(144deg, #eff6ff 0%, #faf5ff 100%);
+  background: linear-gradient(144deg, #f9e8eb 0%, #fdf5e0 100%);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -152,7 +152,7 @@ a {
 .hero-image-bg {
   position: absolute;
   inset: 0;
-  background: linear-gradient(127deg, #51a2ff 0%, #c27aff 100%);
+  background: linear-gradient(127deg, var(--cardinal) 0%, var(--gold) 100%);
   border-radius: 16px;
   transform: rotate(3deg);
 }
@@ -193,7 +193,7 @@ a {
    ═══════════════════════════════════ */
 
 .about {
-  background: linear-gradient(to bottom, #fff, #eff6ff);
+  background: linear-gradient(to bottom, #fff, #f9e8eb);
   padding: 80px 40px;
 }
 
@@ -223,9 +223,9 @@ a {
   transform: scale(1.05);
 }
 
-.about-card--blue  { border-color: var(--blue-border); }
-.about-card--purple { border-color: var(--purple-border); }
-.about-card--pink  { border-color: var(--pink-border); }
+.about-card--blue  { border-color: var(--cardinal-border); }
+.about-card--purple { border-color: var(--gold-border); }
+.about-card--pink  { border-color: var(--gold-border-alt); }
 
 .about-card-icon {
   width: 64px;
@@ -242,9 +242,9 @@ a {
   height: 32px;
 }
 
-.about-card-icon--blue   { background: var(--blue-light-bg); }
-.about-card-icon--purple { background: var(--purple-light-bg); }
-.about-card-icon--pink   { background: var(--pink-light-bg); }
+.about-card-icon--blue   { background: var(--cardinal-light-bg); }
+.about-card-icon--purple { background: var(--gold-light-bg); }
+.about-card-icon--pink   { background: var(--gold-light-bg-alt); }
 
 .about-card h3 {
   font-size: 20px;
@@ -291,6 +291,11 @@ a {
   height: 420px;
   box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
               0 4px 6px -4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.25s ease;
+}
+
+.drives-card:hover {
+  transform: scale(1.05);
 }
 
 .drives-card-img {
@@ -334,7 +339,7 @@ a {
    ═══════════════════════════════════ */
 
 .story {
-  background: linear-gradient(152deg, #eff6ff 0%, #faf5ff 50%, #fdf2f8 100%);
+  background: linear-gradient(152deg, #f9e8eb 0%, #fdf5e0 50%, #fef3d6 100%);
   padding: 80px 40px;
 }
 
@@ -425,18 +430,23 @@ a {
   text-align: center;
   box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1),
               0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.25s ease;
+}
+
+.spirit-card:hover {
+  transform: scale(1.05);
 }
 
 .spirit-card--blue {
-  background: linear-gradient(146deg, #eff6ff 0%, #dbeafe 100%);
+  background: linear-gradient(146deg, #f9e8eb 0%, #f2cdd4 100%);
 }
 
 .spirit-card--purple {
-  background: linear-gradient(146deg, #faf5ff 0%, #f3e8ff 100%);
+  background: linear-gradient(146deg, #fdf5e0 0%, #faecc0 100%);
 }
 
 .spirit-card--pink {
-  background: linear-gradient(146deg, #fdf2f8 0%, #fce7f3 100%);
+  background: linear-gradient(146deg, #fef3d6 0%, #fbe8b5 100%);
 }
 
 .spirit-card-icon {
@@ -454,9 +464,9 @@ a {
   height: 32px;
 }
 
-.spirit-card-icon--blue   { background: var(--blue-bright); }
-.spirit-card-icon--purple { background: var(--purple-bright); }
-.spirit-card-icon--pink   { background: var(--pink); }
+.spirit-card-icon--blue   { background: var(--cardinal-bright); }
+.spirit-card-icon--purple { background: var(--gold); }
+.spirit-card-icon--pink   { background: var(--gold-bright); }
 
 .spirit-card h3 {
   font-size: 20px;
@@ -475,7 +485,7 @@ a {
 }
 
 .spirit-quote {
-  background: linear-gradient(to right, var(--blue), var(--purple));
+  background: linear-gradient(to right, var(--cardinal), var(--cardinal-dark));
   border-radius: 10px;
   padding: 32px;
   text-align: center;
@@ -492,7 +502,7 @@ a {
 .spirit-quote-sub {
   font-size: 18px;
   line-height: 28px;
-  color: var(--blue-light-bg);
+  color: var(--gold-light-bg);
   letter-spacing: -0.44px;
 }
 
@@ -501,7 +511,7 @@ a {
    ═══════════════════════════════════ */
 
 .cta {
-  background: linear-gradient(152deg, #1c398e 0%, #59168b 50%, #861042 100%);
+  background: linear-gradient(152deg, var(--cardinal-dark) 0%, var(--cardinal) 50%, #7a1528 100%);
   padding: 80px 40px;
 }
 
@@ -523,7 +533,7 @@ a {
 .cta-subtitle {
   font-size: 20px;
   line-height: 28px;
-  color: var(--blue-light-bg);
+  color: var(--gold-light-bg);
   letter-spacing: -0.45px;
   margin-bottom: 48px;
 }
@@ -540,6 +550,11 @@ a {
   border-radius: 10px;
   padding: 24px;
   text-align: center;
+  transition: transform 0.25s ease;
+}
+
+.cta-card:hover {
+  transform: scale(1.05);
 }
 
 .cta-card-icon {
@@ -557,9 +572,9 @@ a {
   height: 24px;
 }
 
-.cta-card-icon--blue   { background: var(--blue-bright); }
-.cta-card-icon--purple { background: var(--purple-bright); }
-.cta-card-icon--pink   { background: var(--pink); }
+.cta-card-icon--blue   { background: var(--cardinal-bright); }
+.cta-card-icon--purple { background: var(--gold); }
+.cta-card-icon--pink   { background: var(--gold-bright); }
 
 .cta-card h3 {
   font-size: 20px;
@@ -573,7 +588,7 @@ a {
 .cta-card p {
   font-size: 16px;
   line-height: 24px;
-  color: var(--blue-light-bg);
+  color: var(--gold-light-bg);
   letter-spacing: -0.31px;
 }
 
@@ -584,7 +599,7 @@ a {
 .cta-footer {
   font-size: 16px;
   line-height: 24px;
-  color: var(--blue-border);
+  color: var(--gold-border);
   letter-spacing: -0.31px;
 }
 
