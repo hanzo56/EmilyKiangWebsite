@@ -823,6 +823,15 @@ a {
   will-change: transform, opacity;
 }
 
+/* ── Parallax containment ── */
+.about,
+.drives,
+.story,
+.spirit,
+.cta {
+  overflow: hidden;
+}
+
 /* ═══════════════════════════════════
    RESPONSIVE
    ═══════════════════════════════════ */

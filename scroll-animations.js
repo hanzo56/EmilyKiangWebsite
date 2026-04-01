@@ -183,11 +183,57 @@
     });
   }
 
+  /* ── Per-section parallax depth ── */
+  var parallaxLayers = [
+    { parent: '.about', children: [
+      { sel: '.section-header', speed: 0.08 },
+      { sel: '.about-cards', speed: 0.03 }
+    ]},
+    { parent: '.drives', children: [
+      { sel: '.section-header', speed: 0.08 },
+      { sel: '.drives-grid', speed: 0.04 }
+    ]},
+    { parent: '.story', children: [
+      { sel: '.story-inner', speed: 0.06 }
+    ]},
+    { parent: '.spirit', children: [
+      { sel: '.section-header', speed: 0.08 },
+      { sel: '.spirit-body', speed: 0.05 },
+      { sel: '.spirit-cards', speed: 0.03 }
+    ]},
+    { parent: '.cta', children: [
+      { sel: '.cta-inner', speed: 0.05 }
+    ]}
+  ];
+
+  function animateParallax() {
+    var winH = window.innerHeight;
+
+    parallaxLayers.forEach(function (cfg) {
+      var section = document.querySelector(cfg.parent);
+      if (!section) return;
+
+      var sectionTop = section.offsetTop - currentScrollY;
+      var sectionH = section.offsetHeight;
+
+      if (sectionTop + sectionH < -100 || sectionTop > winH + 100) return;
+
+      var centerOffset = sectionTop + sectionH / 2 - winH / 2;
+
+      cfg.children.forEach(function (child) {
+        var el = section.querySelector(child.sel);
+        if (!el) return;
+        el.style.transform = 'translateY(' + (centerOffset * child.speed) + 'px)';
+      });
+    });
+  }
+
   /* ── Tick loop ── */
   function tick() {
     currentScrollY = lerp(currentScrollY, scrollY, LERP_FACTOR);
 
     animateHero();
+    animateParallax();
     revealCards();
     animateDrivesCards();
     animateStory();
